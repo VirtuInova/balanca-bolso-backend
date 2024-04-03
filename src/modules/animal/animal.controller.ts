@@ -3,7 +3,6 @@ import { AnimalService } from "./animal.service";
 import { AnimalDTO, PesoDTO, getPesoDTO } from "./dto/animal.dto";
 import { ActiveUserId } from "src/shared/database/decorators/activerUserId";
 import { UserService } from "../user/user.service";
-import { log } from "console";
 
 @Controller('animal')
 export class AnimalController {
@@ -79,7 +78,7 @@ export class AnimalController {
       throw new NotFoundException();
     }
 
-    return this.animalService.getIdentificator(animalId);
+    return this.animalService.getIdentificator(animalId, user.id);
   }
 
 }

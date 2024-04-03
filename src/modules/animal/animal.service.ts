@@ -38,10 +38,11 @@ export class AnimalService {
     return animais;
   }
 
-  async getIdentificator(identificator: string) {
+  async getIdentificator(identificator: string, userId: string) {
     const animal = await this.prismaService.animal.findFirst({
       where:{
-        identificator
+        identificator, 
+        userId
       }
     });
     if(animal){
