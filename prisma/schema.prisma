@@ -11,13 +11,12 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  directUrl    = env("DIRECT_URL")
 }
 
 
 model Animal{
   id               String    @id @unique @default(uuid()) @db.Uuid
-  identificator    String    @unique
+  identificator    String    
   userId           String    @db.Uuid
   imagem           String      
   category         String    @default("Swine")
